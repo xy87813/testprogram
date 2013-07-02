@@ -1,0 +1,57 @@
+337122883
+重庆市巴南区龙州大道101号巴南移动分公司网络部 熊兴伟 13883323701
+13658420680
+cq198808
+cq28012632 666
+opkg update
+opkg install bash
+rm S50snmpd
+rm install.sh
+rm snmpd.conf
+rm crontab
+rm web.conf
+rm probe_test.sh
+/usr/bin/wget -O /root/install.tar ftp://root:zhangy0221@218.201.1.116/putScript/put.tar.gz
+tar -xzf install.tar
+
+/usr/bin/crontab /root/crontab
+/bin/cp my_service /etc/init.d/my_service
+chmod 755 /etc/init.d/my_service
+ln -s /etc/init.d/my_service /etc/rc.d/S50my_service
+/etc/init.d/my_service enable
+
+reboot
+
+www.youku.com
+www.tudou.com
+www.kankan.com
+www.cntv.cn
+www.pps.tv
+www.pptv.com
+
+mysqlcheck --auto-repair --databases 数据库
+
+
+
+/usr/bin/wget ftp://root:zhangy0221@218.201.1.116/banner -O /etc/banner
+/etc/init.d/uhttpd stop
+/etc/init.d/uhttpd disable
+/usr/bin/wget -O /root/install.tar ftp://root:zhangy0221@218.201.1.116/putScript/put.tar.gz
+tar -xzf install.tar
+/usr/bin/wget -O /root/all.conf ftp://root:zhangy0221@218.201.1.116/putScript/all.conf
+./install.sh
+
+vi /etc/config/network
+
+
+config interface 'wan'
+        option ifname 'eth1'
+        option _orig_ifname 'eth1'
+        option _orig_bridge 'false'
+        option proto 'static'
+        option ipaddr '183.224.112.85'
+        option netmask '255.255.255.0'
+        option gateway '183.224.112.1'
+	option dns '218.201.21.132 218.201.4.3'
+
+
